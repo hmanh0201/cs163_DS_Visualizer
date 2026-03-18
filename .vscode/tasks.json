@@ -2,16 +2,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Raylib Project",
+            "label": "Build DS Visualizer (g++)", // Tên này phải khớp với preLaunchTask
             "type": "shell",
             "command": "g++",
             "args": [
                 "-g",
                 "src/main.cpp",
                 "-o",
-                "game.exe",
-                "-Iinclude",     // Tìm file .h trong thư mục include
-                "-Llib",         // Tìm file .a trong thư mục lib 
+                "DSVisualizer.exe", // Đổi tên file output ở đây
+                "-I${workspaceFolder}/include",
+                "-L${workspaceFolder}/lib",
                 "-lraylib",
                 "-lopengl32",
                 "-lgdi32",
@@ -20,7 +20,7 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true // Đặt task này làm mặc định
+                "isDefault": true
             },
             "problemMatcher": ["$gcc"]
         }
