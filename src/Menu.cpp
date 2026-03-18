@@ -17,13 +17,13 @@ DrawMenu::DrawMenu(int w, int h)
 
     // 3. Khởi tạo 6 Topics theo đúng hình ảnh
     // LƯU Ý: Bạn cần chuẩn bị các file ảnh icon này trong thư mục assets
-    topics.push_back(new Topic("assets/icons/list.png", "Singly Linked List", cardW, cardH));
-    topics.push_back(new Topic("assets/icons/heap.png", "Heap", cardW, cardH));
-    topics.push_back(new Topic("assets/icons/avl.png", "AVL tree", cardW, cardH));
+    topics.push_back(new Topic("assets/list.png", "Singly Linked List", cardW, cardH));
+    topics.push_back(new Topic("assets/heap.png", "Heap", cardW, cardH));
+    topics.push_back(new Topic("assets/avl.png", "AVL tree", cardW, cardH));
     
-    topics.push_back(new Topic("assets/icons/trie.png", "Trie", cardW, cardH));
-    topics.push_back(new Topic("assets/icons/mst.png", "Minimum Spanning Tree", cardW, cardH));
-    topics.push_back(new Topic("assets/icons/connected.png", "Find Connected Component", cardW, cardH));
+    topics.push_back(new Topic("assets/trie.png", "Trie", cardW, cardH));
+    topics.push_back(new Topic("assets/mst.png", "Minimum Spanning Tree", cardW, cardH));
+    topics.push_back(new Topic("assets/connected.png", "Find Connected Component", cardW, cardH));
 }
 
 DrawMenu::~DrawMenu()
@@ -46,12 +46,12 @@ void DrawMenu::Draw(const Palette &colors)
     
     // Căn giữa Title lớn
     const char* titleStr = "Data Structure Visualizer";
-    float titleX = (width / 2.0f) - 400.0f; // Ước lượng dịch trái 400px
+    float titleX = (width / 2.0f) - 355.0f; // Ước lượng dịch trái 400px
     mainTitle.Draw(titleStr, { titleX, 120 }, 72, 1.5f, colors.textPrimary);
 
     // Căn giữa Subtitle
     const char* sub1 = "Interactive visualizations for common data structures. Select a topic to explore!";
-    float sub1X = (width / 2.0f) - 340.0f;
+    float sub1X = (width / 2.0f) - 390.0f;
     subTitle.Draw(sub1, { sub1X, 220 }, 26, 1.0f, colors.textSecondary);
 
 
