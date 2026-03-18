@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Raylib Project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "src/main.cpp",
+                "-o",
+                "game.exe",
+                "-Iinclude",     // Tìm file .h trong thư mục include
+                "-Llib",         // Tìm file .a trong thư mục lib 
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm",
+                "-static"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true // Đặt task này làm mặc định
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
