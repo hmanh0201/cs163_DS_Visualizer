@@ -1,5 +1,7 @@
 #pragma once 
 #include "raylib.h"
+#include <string>
+#include "theme.h"
 
 class button 
 {
@@ -19,4 +21,36 @@ class button
         Texture2D ChangeTexture;
         Texture2D texture02;
         Texture2D ChangeTexture02;
+};
+
+class WriteText 
+{
+    private:
+        Font font;
+        bool isLoaded;
+
+    public:
+        WriteText();
+        ~WriteText();
+        bool LoadMyFont(const std::string& filePath, int fontSize);
+        void Draw(const std::string& text, Vector2 position, float fontSize, float spacing, Color color);
+        void Unload();
+};
+
+class Topic 
+{
+    public:
+        Topic(const std::string& iconPath, const std::string& titleText, int w = 300, int h = 180);
+        ~Topic();
+        void Draw(Vector2 pos, const Palette& palette);
+        bool getClick();
+    private:
+        Texture2D iconTex;
+        Font font;
+
+        std::string title;
+        int cardWidth;
+        int cardHeight;
+
+        Rectangle bounds;
 };

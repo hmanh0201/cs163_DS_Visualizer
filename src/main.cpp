@@ -4,6 +4,7 @@
 #include "UI.h" 
 #include "header.h"
 #include "theme.h"
+#include "Menu.h"
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -22,14 +23,13 @@ int main()
 
     SetTargetFPS(60);
 
-    ThemeManager& themeManager = ThemeManager::GetInstance();
-    
-    header myHeader(WindowWidth, WindowHeight, 
-                    "assets/close.png", "assets/close_hover.png", 
-                    "assets/day-mode.png", "assets/night-mode.png", 
-                    "assets/home-logo.png", "assets/home-logo-2.png");
-
     std::string MainState = "MENU";
+
+    ThemeManager& themeManager = ThemeManager::GetInstance();
+
+    header myHeader(WindowWidth, WindowHeight, "assets/close.png", "assets/close_hover.png", "assets/day-mode.png", "assets/night-mode.png", "assets/home-logo.png", "assets/home-logo-2.png");
+
+    DrawMenu myMenu(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -57,6 +57,12 @@ int main()
         if (myHeader.getReturnMenu())
         {
             MainState = "MENU";
+        }
+
+        if (MainState == "MENU")
+        {
+            myMenu.Draw(colors);
+            int clickedTopic = myMenu.CheckTopicClick();
         }
 
         EndDrawing();
