@@ -175,3 +175,73 @@ bool Topic::getClick() {
     }
     return false;
 }
+
+TextButton::TextButton(Rectangle bounds, const std::string& text, const std::string& fontPath) {
+    this->bounds = bounds;
+    this->text = text;
+    
+    // Tải font trực tiếp bên trong class
+    this->font = LoadFontEx(fontPath.c_str(), 24, 0, 0); 
+    // Bật bộ lọc Bilinear để chữ hiển thị mượt mà hơn khi scale
+    SetTextureFilter(this->font.texture, TEXTURE_FILTER_BILINEAR);
+    
+    this->hoverProgress = 0.0f;
+    this->transitionSpeed = 1000.0f;
+    
+    this->normalColor = Color{ 113, 102, 240, 255 }; 
+    this->hoverColor = Color{ 41, 168, 246, 255 };   
+    this->textColor = WHITE;
+}
+
+TextButton::~TextButton() {
+    // Rất quan trọng: Giải phóng font khi nút bị hủy
+    UnloadFont(this->font);
+}
+
+void TextButton::Draw() {
+    Vector2 mousePos = GetMousePosition();
+    bool isHovered = CheckCollisionPointRec(mousePos, bounds);
+
+    if (isHovered) {
+        hoverProgress += GetFrameTime() * transitionSpeed;
+        if (hoverProgress > 1.0f) hoverProgress = 1.0f;
+    } else {
+        hoverProgress -= GetFrameTime() * transitionSpeed;
+        if (hoverProgress < 0.0f) hoverProgress = 0.0f;
+    }
+
+    // 1. Vẽ lớp nền mặc định (Màu tím xanh)
+    DrawRectangleRounded(bounds, 0.6f, 20, normalColor);
+
+    // 2. Vẽ lớp nền Hover (Màu xanh dương) trượt từ phải sang trái
+    if (hoverProgress > 0.0f) {
+        float currentClipWidth = bounds.width * hoverProgress;
+        float startX = bounds.x + bounds.width - currentClipWidth;
+
+        BeginScissorMode((int)startX, (int)bounds.y, (int)currentClipWidth, (int)bounds.height);
+        DrawRectangleRounded(bounds, 0.6f, 20, hoverColor);
+        EndScissorMode(); 
+    }
+
+    // 3. Tính toán vị trí và vẽ Text nằm chính giữa nút
+    float fontSize = 24.0f;
+    float spacing = 1.5f;
+    
+    Vector2 textSize = MeasureTextEx(font, text.c_str(), fontSize, spacing);
+    Vector2 textPos = {
+        bounds.x + (bounds.width - textSize.x) / 2.0f,
+        bounds.y + (bounds.height - textSize.y) / 2.0f
+    };
+
+    DrawTextEx(font, text.c_str(), textPos, fontSize, spacing, textColor);
+}
+
+bool TextButton::isPressed() {
+    Vector2 mousePos = GetMousePosition();
+    return CheckCollisionPointRec(mousePos, bounds) && IsMouseButtonReleased(MOUSE_BUTTON_LEFT);
+}
+
+void TextButton::SetPosition(Vector2 newPos) {
+    bounds.x = newPos.x;
+    bounds.y = newPos.y;
+}

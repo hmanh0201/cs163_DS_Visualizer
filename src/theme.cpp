@@ -40,22 +40,18 @@ ThemeManager::ThemeManager() {
     currentMode = ThemeMode::LIGHT; 
 }
 
-// Gán trực tiếp một Theme cụ thể
 void ThemeManager::SetTheme(ThemeMode mode) {
     currentMode = mode;
 }
 
-// Hàm đảo ngược Theme hiện tại (Dùng cho nút bấm đổi màu Sáng/Tối)
 void ThemeManager::ToggleTheme() {
     currentMode = (currentMode == ThemeMode::LIGHT) ? ThemeMode::DARK : ThemeMode::LIGHT;
 }
 
-// Trả về bảng màu tương ứng với chế độ hiện tại để đem đi vẽ
 const Palette& ThemeManager::GetColors() {
     return (currentMode == ThemeMode::LIGHT) ? lightPalette : darkPalette;
 }
 
-// Lấy trạng thái Theme hiện tại
 ThemeMode ThemeManager::GetCurrentMode() {
     return currentMode;
 }

@@ -17,7 +17,7 @@ class header
         int width;
         int height;
         bool state = 1;
-        bool themeState = 1;
+        bool themeState = 0; // 0: Dark, 1: Light Trang thai mặc định là Dark
         bool returnMenu = 0;
         
         Texture2D logoTexture;

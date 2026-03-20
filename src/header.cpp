@@ -115,5 +115,9 @@ bool header::getThemeState()
 
 bool header::getReturnMenu()
 {
-    return returnMenu;
+    if (returnMenu) {
+        returnMenu = 0; 
+        return true;
+    }
+    return false;
 }

@@ -54,3 +54,27 @@ class Topic
 
         Rectangle bounds;
 };
+
+class TextButton 
+{
+    public:
+        // Thêm tham số fontPath với giá trị mặc định để dễ tùy biến
+        TextButton(Rectangle bounds, const std::string& text, const std::string& fontPath = "assets/fonts/static/Inter-SemiBold.ttf");
+        ~TextButton();
+
+        void Draw();
+        bool isPressed();
+        void SetPosition(Vector2 newPos);
+
+    private:
+        Rectangle bounds;
+        std::string text;
+        Font font;
+        
+        float hoverProgress;
+        float transitionSpeed;
+        
+        Color normalColor;
+        Color hoverColor;
+        Color textColor;
+};

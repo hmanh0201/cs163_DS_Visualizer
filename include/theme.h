@@ -35,7 +35,7 @@ public:
 
 private:
     ThemeManager();
-    ThemeMode currentMode = ThemeMode::LIGHT; // Mặc định mở lên là Light mode
+    ThemeMode currentMode;
     Palette lightPalette;
     Palette darkPalette;
 };

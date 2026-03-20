@@ -12,6 +12,7 @@
                 "src/theme.cpp",
                 "src/menu.cpp",
                 "src/UI.cpp",
+                "src/SLL.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",
