@@ -13,6 +13,8 @@
                 "src/menu.cpp",
                 "src/UI.cpp",
                 "src/SLL.cpp",
+                "src/speedSlider.cpp",
+                "src/timeline.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",
@@ -21,6 +23,8 @@
                 "-lopengl32",
                 "-lgdi32",
                 "-lwinmm",
+                "-lcomdlg32",
+                "-mwindows",
                 "-static"
             ],
             "group": {

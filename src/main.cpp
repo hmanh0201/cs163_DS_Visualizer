@@ -25,6 +25,8 @@ int main()
 
     SetTargetFPS(60);
 
+    SetExitKey(0);
+
     std::string MainState = "SLL";
 
     ThemeManager& themeManager = ThemeManager::GetInstance();
