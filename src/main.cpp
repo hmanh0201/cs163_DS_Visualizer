@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <string>
 #include <raylib.h>
@@ -27,7 +26,7 @@ int main()
 
     SetExitKey(0);
 
-    std::string MainState = "SLL";
+    std::string MainState = "MENU";
 
     ThemeManager& themeManager = ThemeManager::GetInstance();
 

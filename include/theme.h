@@ -23,6 +23,14 @@ struct Palette {
     
     // Log text
     Color logSuccess;       // Chữ màu xanh lá trong Execute Log
+
+    // Màu cho Visualization (Singly Linked List, Trees, Graphs...)
+    Color nodeDefault;      // Màu node ở trạng thái bình thường
+    Color nodeHighlight;    // Màu node khi đang quét/tìm kiếm (Search, Update)
+    Color nodeSuccess;      // Màu node khi hoàn tất thao tác thành công
+    Color nodeText;         // Màu chữ (value) bên trong node
+    Color edgeDefault;      // Màu cạnh nối bình thường
+    Color edgeHighlight;    // Màu cạnh nối khi dòng điện (logic) chạy qua
 };
 
 class ThemeManager {

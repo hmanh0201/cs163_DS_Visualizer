@@ -15,6 +15,7 @@
                 "src/SLL.cpp",
                 "src/speedSlider.cpp",
                 "src/timeline.cpp",
+                "src/Visualizer.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",
@@ -24,7 +25,6 @@
                 "-lgdi32",
                 "-lwinmm",
                 "-lcomdlg32",
-                "-mwindows",
                 "-static"
             ],
             "group": {

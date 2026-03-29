@@ -1,4 +1,3 @@
-#pragma once
 #include "speedSlider.h"
 
 speedSlider::speedSlider(Vector2 beginPosition, Vector2 endPosition, float minValue, float maxValue)

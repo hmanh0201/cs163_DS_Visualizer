@@ -1,4 +1,4 @@
-#include "Theme.h"
+#include "theme.h"
 
 // Trả về instance duy nhất của ThemeManager (Singleton Pattern)
 ThemeManager& ThemeManager::GetInstance() {
@@ -19,7 +19,15 @@ ThemeManager::ThemeManager() {
         GetColor(0x8B5CF6FF), // btnGradientStart: Tím cho nút bấm
         GetColor(0x3B82F6FF), // btnGradientEnd: Xanh dương cho nút bấm
         GetColor(0xFFFFFFFF), // btnText: Chữ màu trắng trên nút
-        GetColor(0x10B981FF)  // logSuccess: Xanh lá cây cho Execute Log
+        GetColor(0x10B981FF), // logSuccess: Xanh lá cây cho Execute Log
+
+        // Màu cho Visualization (Light Mode)
+        GetColor(0x3B82F6FF), // nodeDefault: Xanh dương (tương đương primaryAcc)
+        GetColor(0xF59E0BFF), // nodeHighlight: Cam nổi bật (dễ nhìn trên nền sáng)
+        GetColor(0x10B981FF), // nodeSuccess: Xanh lá (tương đương logSuccess)
+        GetColor(0xFFFFFFFF), // nodeText: Chữ màu trắng bên trong Node
+        GetColor(0x94A3B8FF), // edgeDefault: Xám bạc (nhạt hơn border để không rối mắt)
+        GetColor(0xF59E0BFF)  // edgeHighlight: Cam (giống nodeHighlight)
     };
 
     // Khởi tạo mã màu cho Dark Theme (Giao diện Tối)
@@ -33,7 +41,15 @@ ThemeManager::ThemeManager() {
         GetColor(0x8B5CF6FF), // btnGradientStart: Tím (giữ nguyên)
         GetColor(0x3B82F6FF), // btnGradientEnd: Xanh (giữ nguyên)
         GetColor(0xFFFFFFFF), // btnText: Trắng
-        GetColor(0x34D399FF)  // logSuccess: Xanh lá sáng hơn một chút để dễ nhìn trên nền tối
+        GetColor(0x34D399FF), // logSuccess: Xanh lá sáng hơn một chút để dễ nhìn trên nền tối
+
+        // Màu cho Visualization (Dark Mode)
+        GetColor(0x3B82F6FF), // nodeDefault: Xanh dương (nổi bật hoàn hảo trên nền tối)
+        GetColor(0xFBBF24FF), // nodeHighlight: Vàng sáng (Bắt sáng rất mạnh trên nền đen)
+        GetColor(0x34D399FF), // nodeSuccess: Xanh lá neon (tương đương logSuccess)
+        GetColor(0xFFFFFFFF), // nodeText: Chữ màu trắng bên trong Node
+        GetColor(0x64748BFF), // edgeDefault: Xám vừa (đủ để thấy, không bị lấn át Node)
+        GetColor(0xFBBF24FF)  // edgeHighlight: Vàng sáng (giống nodeHighlight)
     };
     
     // Đảm bảo khởi tạo đúng với chế độ mặc định
