@@ -16,6 +16,7 @@
                 "src/speedSlider.cpp",
                 "src/timeline.cpp",
                 "src/Visualizer.cpp",
+                "src/Heap.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",

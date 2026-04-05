@@ -6,6 +6,7 @@
 #include "theme.h"
 #include "Menu.h"
 #include "SLL.h"
+#include "Heap.h"
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -35,6 +36,7 @@ int main()
     DrawMenu myMenu(WindowWidth, WindowHeight);
 
     SLL mySLL(WindowWidth, WindowHeight);
+    Heap myHeap(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -86,6 +88,10 @@ int main()
         if (MainState == "SLL")
         {
             mySLL.Solve(colors);
+        }
+        if (MainState == "HEAP")
+        {
+            myHeap.Solve(colors);
         }
 
         EndDrawing();
