@@ -17,6 +17,7 @@
                 "src/timeline.cpp",
                 "src/Visualizer.cpp",
                 "src/Heap.cpp",
+                "src/AVL.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",

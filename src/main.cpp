@@ -7,6 +7,7 @@
 #include "Menu.h"
 #include "SLL.h"
 #include "Heap.h"
+#include <AVL.h>
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -37,6 +38,7 @@ int main()
 
     SLL mySLL(WindowWidth, WindowHeight);
     Heap myHeap(WindowWidth, WindowHeight);
+    AVL myAVL(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -92,6 +94,10 @@ int main()
         if (MainState == "HEAP")
         {
             myHeap.Solve(colors);
+        }
+        if (MainState == "AVL")
+        {
+            myAVL.Solve(colors);
         }
 
         EndDrawing();
