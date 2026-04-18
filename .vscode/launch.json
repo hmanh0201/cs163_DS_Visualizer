@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run DS Visualizer", 
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/DSVisualizer.exe", // Khớp với -o trong tasks.json
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", 
+            "environment": [],
+            "externalConsole": false, 
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "preLaunchTask": "Build DS Visualizer (g++)" // Khớp với label trong tasks.json
+        }
+    ]
+}

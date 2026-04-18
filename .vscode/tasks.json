@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build DS Visualizer (g++)", // Tên này phải khớp với preLaunchTask
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "src/main.cpp",
+                "src/header.cpp",
+                "src/theme.cpp",
+                "src/menu.cpp",
+                "src/UI.cpp",
+                "src/SLL.cpp",
+                "src/speedSlider.cpp",
+                "src/timeline.cpp",
+                "src/Visualizer.cpp",
+                "src/Heap.cpp",
+                "src/AVL.cpp",
+                "-o",
+                "DSVisualizer.exe", // Đổi tên file output ở đây
+                "-I${workspaceFolder}/include",
+                "-L${workspaceFolder}/lib",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm",
+                "-lcomdlg32",
+                "-static"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
