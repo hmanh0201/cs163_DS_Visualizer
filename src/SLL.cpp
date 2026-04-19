@@ -463,19 +463,39 @@ void SLL::Draw(const Palette &colors)
         isPause = true;
     }
 
-    // --- VẼ EXECUTE LOG ---
+// --- VẼ EXECUTE LOG TỰ ĐỘNG CUỘN ---
     DrawLineEx({319, 830}, {1920, 830}, 1.0f, colors.border);
     DrawTextEx(titleFont, "EXECUTE LOG", {319 + 32, 840}, 32, 0.4f, colors.textPrimary);
     
     float codeStartY = 880.0f;
     int activeLine = (curIndex < stepCodeLines.size()) ? stepCodeLines[curIndex] : -1;
     
-    for (int i = 0; i < currentCodeLines.size(); i++) {
+    int maxVisibleLines = 7; 
+    int totalLines = currentCodeLines.size();
+    
+    int startLine = 0;
+    if (activeLine >= 0) {
+        startLine = activeLine - (maxVisibleLines / 2); 
+    }
+    
+    if (startLine < 0) startLine = 0;
+    if (totalLines > maxVisibleLines && startLine > totalLines - maxVisibleLines) {
+        startLine = totalLines - maxVisibleLines;
+    }
+
+    int displayIndex = 0; 
+    
+    for (int i = startLine; i < totalLines && displayIndex < maxVisibleLines; i++) {
         Color c = (i == activeLine) ? colors.textPrimary : colors.textSecondary;
+        
+        float currentY = codeStartY + displayIndex * 25;
+        
         if (i == activeLine) {
-            DrawRectangle(319 + 20, codeStartY + i * 25 - 2, 800, 25, Fade(colors.primaryAcc, 0.3f));
+            DrawRectangle(319 + 20, currentY - 2, 800, 25, Fade(colors.primaryAcc, 0.3f));
         }
-        DrawTextEx(font, currentCodeLines[i].c_str(), {319 + 32, codeStartY + i * 25}, 20, 1.0f, c);
+        DrawTextEx(font, currentCodeLines[i].c_str(), {319 + 32, currentY}, 20, 1.0f, c);
+        
+        displayIndex++;
     }
 
     // --- DIALOG ---
