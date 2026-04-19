@@ -18,6 +18,7 @@
                 "src/Visualizer.cpp",
                 "src/Heap.cpp",
                 "src/AVL.cpp",
+                "src/trie.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",

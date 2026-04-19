@@ -514,7 +514,8 @@ void AVL::Solve(const Palette &colors) {
 
 void AVL::Draw(const Palette &colors) {  
     ClearBackground(colors.background);
-    
+
+    std::cout << StartX << " " << StartY << std::endl;
     DrawLineEx({319.0f, StartY}, {319.0f, EndY}, 1.0f, colors.border);
     DrawTexture(setting, StartX + 10, StartY + 18, colors.primaryAcc);
     DrawTextEx(font, "Controls", {StartX + 20 + (float)setting.width, StartY + 25}, 24, 1.0f, colors.textPrimary);

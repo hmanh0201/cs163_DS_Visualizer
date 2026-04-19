@@ -8,6 +8,7 @@
 #include "SLL.h"
 #include "Heap.h"
 #include <AVL.h>
+#include <trie.h>
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -39,6 +40,7 @@ int main()
     SLL mySLL(WindowWidth, WindowHeight);
     Heap myHeap(WindowWidth, WindowHeight);
     AVL myAVL(WindowWidth, WindowHeight);
+    Trie myTrie(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -98,6 +100,10 @@ int main()
         if (MainState == "AVL")
         {
             myAVL.Solve(colors);
+        }
+        if (MainState == "TRIE")
+        {
+            myTrie.Solve(colors);
         }
 
         EndDrawing();
