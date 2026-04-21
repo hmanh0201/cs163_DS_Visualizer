@@ -31,6 +31,10 @@ struct Palette {
     Color nodeText;         // Màu chữ (value) bên trong node
     Color edgeDefault;      // Màu cạnh nối bình thường
     Color edgeHighlight;    // Màu cạnh nối khi dòng điện (logic) chạy qua
+
+    // Màu cho các trạng thái thuật toán Đồ thị (MST, CC)
+    Color success;          // Xanh lá (Chấp nhận cạnh)
+    Color error;            // Đỏ (Phát hiện chu trình / Từ chối cạnh)
 };
 
 class ThemeManager {

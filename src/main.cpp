@@ -9,6 +9,7 @@
 #include "Heap.h"
 #include <AVL.h>
 #include <trie.h>
+#include <mst.h>
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -41,6 +42,7 @@ int main()
     Heap myHeap(WindowWidth, WindowHeight);
     AVL myAVL(WindowWidth, WindowHeight);
     Trie myTrie(WindowWidth, WindowHeight);
+    MST myMST(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -104,6 +106,10 @@ int main()
         if (MainState == "TRIE")
         {
             myTrie.Solve(colors);
+        }
+        if (MainState == "MST")
+        {
+            myMST.Solve(colors);
         }
 
         EndDrawing();

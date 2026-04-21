@@ -27,7 +27,11 @@ ThemeManager::ThemeManager() {
         GetColor(0x10B981FF), // nodeSuccess: Xanh lá (tương đương logSuccess)
         GetColor(0xFFFFFFFF), // nodeText: Chữ màu trắng bên trong Node
         GetColor(0x94A3B8FF), // edgeDefault: Xám bạc (nhạt hơn border để không rối mắt)
-        GetColor(0xF59E0BFF)  // edgeHighlight: Cam (giống nodeHighlight)
+        GetColor(0xF59E0BFF), // edgeHighlight: Cam (giống nodeHighlight)
+
+        // [BỔ SUNG] Màu cho Đồ thị
+        GetColor(0x10B981FF), // success: Xanh lá cây
+        GetColor(0xEF4444FF)  // error: Đỏ nổi bật
     };
 
     // Khởi tạo mã màu cho Dark Theme (Giao diện Tối)
@@ -49,7 +53,11 @@ ThemeManager::ThemeManager() {
         GetColor(0x34D399FF), // nodeSuccess: Xanh lá neon (tương đương logSuccess)
         GetColor(0xFFFFFFFF), // nodeText: Chữ màu trắng bên trong Node
         GetColor(0x64748BFF), // edgeDefault: Xám vừa (đủ để thấy, không bị lấn át Node)
-        GetColor(0xFBBF24FF)  // edgeHighlight: Vàng sáng (giống nodeHighlight)
+        GetColor(0xFBBF24FF), // edgeHighlight: Vàng sáng (giống nodeHighlight)
+
+        // Màu cho Đồ thị
+        GetColor(0x34D399FF), // success: Xanh lá sáng neon
+        GetColor(0xF87171FF)  // error: Đỏ sáng (nhẹ nhàng hơn trên nền tối)
     };
     
     // Đảm bảo khởi tạo đúng với chế độ mặc định

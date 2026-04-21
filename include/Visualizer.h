@@ -7,7 +7,8 @@ enum class ElementTheme
 {
     DEFAULT,    
     HIGHLIGHT,  
-    SUCCESS     
+    SUCCESS,
+    ERROR        
 };
 
 struct VertexState 
