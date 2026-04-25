@@ -20,6 +20,7 @@
                 "src/AVL.cpp",
                 "src/trie.cpp",
                 "src/mst.cpp",
+                "src/find_cc.cpp",
                 "-o",
                 "DSVisualizer.exe", // Đổi tên file output ở đây
                 "-I${workspaceFolder}/include",

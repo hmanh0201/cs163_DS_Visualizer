@@ -10,6 +10,7 @@
 #include <AVL.h>
 #include <trie.h>
 #include <mst.h>
+#include <find_cc.h>
 
 int WindowWidth = 1920;
 int WindowHeight = 1080;
@@ -43,6 +44,7 @@ int main()
     AVL myAVL(WindowWidth, WindowHeight);
     Trie myTrie(WindowWidth, WindowHeight);
     MST myMST(WindowWidth, WindowHeight);
+    FindCC myCC(WindowWidth, WindowHeight);
 
     while (!WindowShouldClose())
     {
@@ -110,6 +112,10 @@ int main()
         if (MainState == "MST")
         {
             myMST.Solve(colors);
+        }
+        if (MainState == "CONNECTED")
+        {
+            myCC.Solve(colors);
         }
 
         EndDrawing();
