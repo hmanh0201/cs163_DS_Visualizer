@@ -5,6 +5,7 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <fstream>
 
 AVL::AVL(int width, int height) 
 {
@@ -619,6 +620,26 @@ void AVL::Draw(const Palette &colors) {
 
     // --- DIALOG NHẬP LIỆU ---
     if (isInsertDialogOpen) {
+        //drop file
+        if (IsFileDropped()) {
+            FilePathList droppedFiles = LoadDroppedFiles();
+            if (droppedFiles.count > 0) {
+                std::ifstream file(droppedFiles.paths[0]);
+                if (file.is_open()) {
+                    std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+                    std::string filtered = "";
+                    for (char c : content) {
+                        if (c == '\n' || c == '\r') filtered += " ";
+                        else filtered += c;
+                    }
+                    strncpy(insertInputText, filtered.c_str(), 254);
+                    insertInputText[254] = '\0';
+                    insertInputCount = strlen(insertInputText);
+                }
+            }
+            UnloadDroppedFiles(droppedFiles);
+        }
+
         DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.6f));
         float dialogWidth = 600.0f; float dialogHeight = 200.0f;
         float dialogX = (GetScreenWidth() - dialogWidth) / 2.0f; float dialogY = (GetScreenHeight() - dialogHeight) / 2.0f;

@@ -4,6 +4,7 @@
 #include <ctime>
 #include <string>
 #include <cstring>
+#include <fstream>
 
 SLL::SLL(int width, int height) 
 {
@@ -501,6 +502,21 @@ void SLL::Draw(const Palette &colors)
     // --- DIALOG ---
     if (isInsertDialogOpen)
     {
+        ///drop file
+        if (IsFileDropped()) {
+            FilePathList droppedFiles = LoadDroppedFiles();
+            if (droppedFiles.count > 0) {
+                std::ifstream file(droppedFiles.paths[0]);
+                if (file.is_open()) {
+                    std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+                    strncpy(insertInputText, content.c_str(), 255);
+                    insertInputText[255] = '\0'; 
+                    insertInputCount = strlen(insertInputText);
+                }
+            }
+            UnloadDroppedFiles(droppedFiles);
+        }
+
         DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.6f));
         float dialogWidth = 1000.0f; float dialogHeight = 200.0f;
         float dialogX = (GetScreenWidth() - dialogWidth) / 2.0f; float dialogY = (GetScreenHeight() - dialogHeight) / 2.0f;
